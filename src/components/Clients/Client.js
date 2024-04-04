@@ -1,13 +1,23 @@
-import React from 'react'
-import Image from 'next/image';
-import dataClients from './dataClients';
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Image from "next/image";
+import dataClients from "./dataClients";
 
 function Client() {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      delay: 50,
+    });
+  });
+
   return (
-    <div className="static p-5 md:p-36 ">
-      <h1
-        className="text-3xl md:text-5xl font-bold text-white"
-      >
+    <div data-aos="fade-up" className="static p-5 md:p-36 ">
+      <h1 className="text-3xl md:text-5xl font-bold text-white">
         Our{" "}
         <span className="bg-gradient-to-r from-[rgb(31,164,217)] via-[rgb(9,110,177)] to-[rgb(57,116,220)] inline-block text-transparent bg-clip-text">
           Clients
@@ -32,4 +42,4 @@ function Client() {
   );
 }
 
-export default Client
+export default Client;

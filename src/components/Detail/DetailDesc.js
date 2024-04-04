@@ -1,12 +1,27 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import DataStack from "./DataStack";
 import Image from "next/image";
 
 function DetailDesc(props) {
- const result = props
+  const result = props;
+
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      delay: 50,
+    });
+  });
   return (
     <div className="text-white py-24 relative">
-      <h1 className="md:absolute text-[2rem] font-semi-bold top-16 left-20 bg-[#0e1b35] px-2">
+      <h1
+        data-aos="fade-up"
+        className="md:absolute text-[2rem] font-semi-bold top-16 left-20 bg-[#0e1b35] px-2"
+      >
         {result.name}
       </h1>
 
@@ -20,7 +35,10 @@ function DetailDesc(props) {
 
         <div className="mt-10 ">
           <h3 className="text-2xl font-medium mb-5">Tech stack</h3>
-          <div className="border flex-wrap border-[#444e61] rounded-2xl w-full flex justify-between ">
+          <div
+            data-aos="fade-up"
+            className="border flex-wrap border-[#444e61] rounded-2xl w-full flex justify-between "
+          >
             {DataStack.map((item, index) => (
               <div key={index} className=" m-1">
                 <Image
@@ -51,19 +69,20 @@ function DetailDesc(props) {
 
           {/* desc */}
 
-          <div>
+          <div data-aos="fade-up">
             <h3 className="text-2xl font-medium mb-6">Description</h3>
             <p className="text-base">{result.desc}</p>
           </div>
 
           {/* Sneak peek */}
-          <div className="my-16">
+          <div data-aos="fade-up" className="my-16">
             <h3 className="text-2xl font-medium mb-6">A sneak peek</h3>
             <p className="text-base mb-5">
               Here’s a sneak peek of what we do with Levare:
             </p>
 
             <Image
+              data-aos="fade-up"
               className="rounded-xl"
               src={result.img}
               width={1800}
@@ -73,7 +92,7 @@ function DetailDesc(props) {
           </div>
 
           {/* Problem Statement */}
-          <div className="my-16">
+          <div data-aos="fade-up" className="my-16">
             <h3 className="text-2xl font-medium mb-6">Problem Statement</h3>
             <p className="text-base mb-5">
               The wine industry lacks an accessible platform that enables wine
@@ -89,7 +108,7 @@ function DetailDesc(props) {
           </div>
 
           {/* What We Did */}
-          <div className="my-16">
+          <div data-aos="fade-up" className="my-16">
             <h3 className="text-2xl font-medium mb-6">What We Did</h3>
             <p className="text-base mb-5">
               By developing a website for Levare Decanter, we aim to address

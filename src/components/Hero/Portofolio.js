@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect } from "react";
-import dataPortofolio from "./dataPortofolio";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import dataPortofolio from "./dataPortofolio";
 import Link from "next/link";
 
 function Portofolio() {
@@ -14,7 +14,7 @@ function Portofolio() {
       offset: 50,
       delay: 50,
     });
-  });
+  }); 
   return (
     <div className="my-11 w-auto md:m-28 flex justify-center gap-9 flex-wrap">
       {dataPortofolio.map((item, index) => (

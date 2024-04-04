@@ -1,12 +1,23 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import { MapPin, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import DataMedsos from "./DataFooter";
 
 function Footer() {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      delay: 50,
+    });
+  });
   return (
-    <div className="text-white w-full p-5">
+    <div data-aos="fade-up" className="text-white w-full p-5">
       <div className="flex justify-between flex-col lg:flex-row gap-14">
         <div className="felx-1 ">
           <Image
@@ -39,20 +50,20 @@ function Footer() {
 
         {/* Footer Medsos */}
         <div className="felx-1">
-        {DataMedsos.map((item, index) => (
-          <Link
-          key={index}
-            href={""}
-            className="flex justify-between items-center border-b-2 pt-2 pb-5 w-56">
-            <p>{item}</p>
-            <ArrowUpRight
-              size={22}
-              className="transform active:scale-75 transition-transform"
-            />
-          </Link>
-        ))}
+          {DataMedsos.map((item, index) => (
+            <Link
+              key={index}
+              href={""}
+              className="flex justify-between items-center border-b-2 pt-2 pb-5 w-56"
+            >
+              <p>{item}</p>
+              <ArrowUpRight
+                size={22}
+                className="transform active:scale-75 transition-transform"
+              />
+            </Link>
+          ))}
         </div>
-
       </div>
       <div className="flex w-full justify-between py-10 text-xs">
         <p>Copyright © 2023 Hyge, Pte. Ltd.</p>

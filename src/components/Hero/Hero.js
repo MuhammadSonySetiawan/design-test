@@ -2,9 +2,10 @@ import React from 'react'
 import Portofolio from './Portofolio';
 
 function Hero() {
+  
   return (
     <div className="px-5">
-      <div className="relative ">
+      <div data-aos="fade-up" className="relative ">
         <div className="hidden md:block p-24 border-r-2 border-indigo-500 border-br-lg"></div>
 
         <h1
@@ -45,7 +46,7 @@ function Hero() {
       </div>
 
       {/* Portoflio */}
-      <div className="border-0 md:border border-indigo-600 rounded-lg">
+      <div className="border-0 md:border-y-2 md:border-r-2 border-indigo-600 rounded-lg">
         <Portofolio />
       </div>
     </div>

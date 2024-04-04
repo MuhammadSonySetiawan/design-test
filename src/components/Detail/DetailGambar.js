@@ -1,13 +1,25 @@
-
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 function DetailGambar(props) {
-   const result = props;
-   console.log(result.category);
+  const result = props;
+
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      delay: 50,
+    });
+  });
+
   return (
-    <div className="py-5 px-2 md:px-24 ">
+    <div data-aos="fade-up" className="py-5 px-2 md:px-24 ">
       <Link
         href="/"
         className="text-white flex justify-start items-center text-sm md:text-lg gap-5 md:gap-5 mb-3 transition-all duration-300 hover:text-[#1a68fe]"
